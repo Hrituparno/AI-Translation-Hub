@@ -1,0 +1,21 @@
+services:
+  # Backend API Service (Free Tier - Lightweight)
+  - type: web
+    name: india-translate-api
+    env: python
+    region: oregon
+    plan: free  # 512 MB RAM
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: LOG_LEVEL
+        value: INFO
+      - key: MAX_MODELS_IN_MEMORY
+        value: 2
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: USE_NLLB_MODEL
+        value: false  # Use lightweight MarianMT for free tier
+      - key: ENABLE_QUANTIZATION
+        value: false

@@ -1,0 +1,62 @@
+================================================================================
+                    PUSH TO GITHUB - SIMPLE INSTRUCTIONS
+================================================================================
+
+EASIEST WAY:
+------------
+Just double-click this file:
+    push_to_github.bat
+
+It will guide you through everything!
+
+
+MANUAL WAY (if you prefer):
+---------------------------
+
+STEP 1: Configure Git (one-time setup)
+---------------------------------------
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+
+STEP 2: Create GitHub Repository
+---------------------------------
+1. Go to: https://github.com/new
+2. Repository name: AI-Translation-Hub
+3. Description: Production-grade multilingual AI translation system
+4. Make it Public
+5. DO NOT check "Initialize with README"
+6. Click "Create repository"
+7. Copy the repository URL (looks like):
+   https://github.com/YOUR_USERNAME/AI-Translation-Hub.git
+
+
+STEP 3: Push Your Code
+-----------------------
+Run these commands (replace YOUR_USERNAME with your actual username):
+
+git add .
+git commit -m "Initial commit: AI translation system"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/AI-Translation-Hub.git
+git push -u origin main
+
+
+DONE!
+-----
+Your code is now on GitHub!
+
+Visit: https://github.com/YOUR_USERNAME/AI-Translation-Hub
+
+
+NEXT STEPS:
+-----------
+1. Deploy API to Render - See: DEPLOYMENT_GUIDE.md
+2. Deploy UI to Streamlit - See: DEPLOY_CHECKLIST.md
+
+
+NEED HELP?
+----------
+See: GITHUB_SETUP.md for detailed instructions
+
+================================================================================
