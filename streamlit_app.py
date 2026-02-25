@@ -3,11 +3,13 @@ Streamlit Cloud entry point.
 This file is required for Streamlit Cloud deployment.
 """
 
+# Simply run the UI app
 import sys
-import os
+from pathlib import Path
 
 # Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
 
-# Import the main app (this will execute the Streamlit code)
-from ui import app
+# Import and run the app
+exec(open("ui/app.py").read())

@@ -12,7 +12,26 @@ import os
 # Add parent directory to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from core.config import LANGUAGE_NAMES, SUPPORTED_LANGUAGES
+# Language configuration (inline to avoid import issues on Streamlit Cloud)
+LANGUAGE_CODES = {
+    "english": "en",
+    "hindi": "hi",
+    "bengali": "bn",
+    "tamil": "ta",
+    "telugu": "te",
+    "marathi": "mr",
+    "gujarati": "gu",
+    "kannada": "kn",
+    "malayalam": "ml",
+    "punjabi": "pa",
+    "urdu": "ur",
+    "odia": "or",
+    "assamese": "as",
+    "sanskrit": "sa"
+}
+
+LANGUAGE_NAMES = {v: k.title() for k, v in LANGUAGE_CODES.items()}
+SUPPORTED_LANGUAGES = list(LANGUAGE_CODES.values())
 
 # Page configuration
 st.set_page_config(
@@ -58,7 +77,8 @@ if 'history' not in st.session_state:
     st.session_state.history = []
 
 if 'api_url' not in st.session_state:
-    st.session_state.api_url = "http://localhost:8000"
+    # Get API URL from environment variable or use default
+    st.session_state.api_url = os.getenv("API_URL", "http://localhost:8000")
 
 # Header
 st.markdown('<div class="main-header">🌐 IndiaTranslate</div>', unsafe_allow_html=True)
